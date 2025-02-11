@@ -4,7 +4,10 @@
 
 @section('content')
     <div class="container">
-        <h2>Employee List</h2>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Employee List</h2>
+            <a href="{{ route('employees.create') }}" class="btn btn-success">➕ Add New Employee</a>
+        </div>
         <table class="table">
             <thead>
                 <tr>

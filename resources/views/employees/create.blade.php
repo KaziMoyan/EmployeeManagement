@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h2>Add Employee</h2>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Add Employee</h2>
+            <a href="{{ route('employees.index') }}" class="btn btn-primary">📋 View Employee List</a>
+        </div>
         <form action="{{ route('employees.store') }}" method="POST">
             @csrf
             <label>Name:</label>
