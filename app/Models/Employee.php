@@ -10,5 +10,9 @@ class Employee extends Model
     use HasFactory;
     
     protected $fillable = ['name', 'salary', 'joining_date', 'phone', 'email', 'RFID'];
+
+    public function attendances() {
+        return $this->hasMany(Attendance::class);
+    }
 }
 
