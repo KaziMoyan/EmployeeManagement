@@ -8,10 +8,15 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Employee Management</a>
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="{{ route('welcome') }}">Employee Management</a>
+            <div>
+                <a href="{{ route('employees.index') }}" class="btn btn-outline-light me-2">👨‍💼 Employees</a>
+                <a href="{{ route('attendances.index') }}" class="btn btn-outline-light">📋 Attendances</a>
+            </div>
         </div>
     </nav>
+
     <div class="container mt-4">
         @yield('content')
     </div>

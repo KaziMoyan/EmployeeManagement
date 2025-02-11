@@ -2,7 +2,10 @@
 
 @section('content')
 <div class="container">
-    <h2>Record Attendance</h2>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Record Attendance</h2>
+        <a href="{{ route('attendances.index') }}" class="btn btn-info">📋 View Attendance List</a>
+    </div>
 
     <form action="{{ route('attendances.store') }}" method="POST">
         @csrf

@@ -35,17 +35,22 @@ class AttendanceController extends Controller {
         return view('attendances.edit', compact('attendance', 'employees'));
     }
 
-    public function update(Request $request, Attendance $attendance) {
+    public function update(Request $request, $id)
+    {
         $request->validate([
-            'date_time_out' => 'required|date|after:date_time_in',
+            'date_time_in' => 'required|date',
+            'date_time_out' => 'nullable|date|after_or_equal:date_time_in',
         ]);
-
+    
+        $attendance = Attendance::findOrFail($id);
         $attendance->update([
+            'date_time_in' => $request->date_time_in,
             'date_time_out' => $request->date_time_out,
         ]);
-
+    
         return redirect()->route('attendances.index')->with('success', 'Attendance updated successfully.');
     }
+    
 
     public function destroy(Attendance $attendance) {
         $attendance->delete();
