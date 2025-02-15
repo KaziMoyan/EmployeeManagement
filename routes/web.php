@@ -4,10 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AttendanceController;
 
-Route::post('/employees/store', [EmployeeController::class, 'store'])->name('employees.store');
 
-Route::resource('employees', EmployeeController::class);
 
+
+//Route::post('/employees/store', [EmployeeController::class, 'store'])->name('employees.store');
+
+//Route::resource('employees', EmployeeController::class,['name'=>'employees']);
+Route::resource('employees', EmployeeController::class)->names('employees');
 Route::resource('attendances', AttendanceController::class);
 
 Route::post('/attendances', [AttendanceController::class, 'store'])->name('attendances.store');

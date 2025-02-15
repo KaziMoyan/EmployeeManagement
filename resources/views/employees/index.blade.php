@@ -32,12 +32,8 @@
                         <td>{{ $employee->email }}</td>
                         <td>{{ $employee->RFID }}</td>
                         <td>
-                            <a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ route('employees.destroy', $employee->id) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
+                            <a href="{{route('employees.edit',$employees->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{route('employees.destroy',$employees->id)}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this employee?');">Delete</a>
                         </td>
                     </tr>
                 @endforeach

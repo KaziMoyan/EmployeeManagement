@@ -9,12 +9,17 @@ class EmployeeController extends Controller
 {
     public function index()
     {
+        
         $employees = Employee::all();
+
         return view('employees.index', compact('employees'));
+
+        //return response()->json($employees);
     }
 
     public function create()
     {
+        
         return view('employees.create');
     }
 
